@@ -17,7 +17,7 @@ namespace Stateless
             {
                 _trigger = trigger;
                 _guard = guard;
-                _guardDescription = Enforce.ArgumentNotNull(guardDescription, nameof(guardDescription));
+                _guardDescription = Enforce.ArgumentNotNull(guardDescription, "guardDescription");
             }
 
             public TTrigger Trigger { get { return _trigger; } }
