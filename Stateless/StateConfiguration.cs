@@ -52,7 +52,7 @@ namespace Stateless
                     trigger,
                     destinationState,
                     guard,
-                    guardDescription != null ? guardDescription : guard?.Method.Name);
+                    guardDescription != null ? guardDescription : guard != null ? guard.Method.Name : null);
             }
 
             /// <summary>
@@ -89,7 +89,7 @@ namespace Stateless
                     trigger,
                     _representation.UnderlyingState,
                     guard,
-                    guardDescription != null ? guardDescription : guard?.Method.Name);
+                    guardDescription != null ? guardDescription : guard != null ? guard.Method.Name : null);
             }
             /// <summary>
             /// Ignore the specified trigger when in the configured state.
@@ -117,7 +117,7 @@ namespace Stateless
                     new IgnoredTriggerBehaviour(
                         trigger,
                         guard,
-                        guardDescription != null ? guardDescription : guard?.Method.Name));
+                        guardDescription != null ? guardDescription : guard != null ? guard.Method.Name : null));
                 return this;
             }
 
@@ -433,7 +433,7 @@ namespace Stateless
                     trigger, 
                     args => destinationStateSelector(), 
                     guard,
-                    guardDescription != null ? guardDescription : guard?.Method.Name);
+                    guardDescription != null ? guardDescription : guard != null ? guard.Method.Name : null);
             }
 
             /// <summary>
@@ -457,7 +457,7 @@ namespace Stateless
                     args => destinationStateSelector(
                         ParameterConversion.Unpack<TArg0>(args, 0)),
                     guard,
-                    guardDescription != null ? guardDescription : guard?.Method.Name);
+                    guardDescription != null ? guardDescription : guard != null ? guard.Method.Name : null);
             }
 
             /// <summary>
@@ -483,7 +483,7 @@ namespace Stateless
                         ParameterConversion.Unpack<TArg0>(args, 0),
                         ParameterConversion.Unpack<TArg1>(args, 1)),
                     guard,
-                    guardDescription != null ? guardDescription : guard?.Method.Name);
+                    guardDescription != null ? guardDescription : guard != null ? guard.Method.Name : null);
             }
 
             /// <summary>
@@ -511,7 +511,7 @@ namespace Stateless
                         ParameterConversion.Unpack<TArg1>(args, 1),
                         ParameterConversion.Unpack<TArg2>(args, 2)),
                     guard,
-                    guardDescription != null ? guardDescription : guard?.Method.Name);
+                    guardDescription != null ? guardDescription : guard != null ? guard.Method.Name : null);
             }
 
             void EnforceNotIdentityTransition(TState destination)
